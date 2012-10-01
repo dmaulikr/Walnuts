@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A56D88E160FC09300016DE0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A56D88D160FC09300016DE0 /* UIKit.framework */; };
+		3A56D890160FC09300016DE0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A56D88F160FC09300016DE0 /* Foundation.framework */; };
+		3A56D892160FC09300016DE0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A56D891160FC09300016DE0 /* CoreGraphics.framework */; };
+		3A56D898160FC09300016DE0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D896160FC09300016DE0 /* InfoPlist.strings */; };
+		3A56D89A160FC09300016DE0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56D899160FC09300016DE0 /* main.m */; };
+		3A56D89E160FC09300016DE0 /* WAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56D89D160FC09300016DE0 /* WAppDelegate.m */; };
+		3A56D8A0160FC09300016DE0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D89F160FC09300016DE0 /* Default.png */; };
+		3A56D8A2160FC09300016DE0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8A1160FC09300016DE0 /* Default@2x.png */; };
+		3A56D8A4160FC09300016DE0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8A3160FC09300016DE0 /* Default-568h@2x.png */; };
+		3A56D8A7160FC09300016DE0 /* WViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56D8A6160FC09300016DE0 /* WViewController.m */; };
+		3A56D8AA160FC09300016DE0 /* WViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8A8160FC09300016DE0 /* WViewController_iPhone.xib */; };
+		3A56D8AD160FC09300016DE0 /* WViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8AB160FC09300016DE0 /* WViewController_iPad.xib */; };
+		3A56D8B4160FC28900016DE0 /* grassfield.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8B3160FC28900016DE0 /* grassfield.jpg */; };
+		3A56D8B7160FC96B00016DE0 /* UIApplication+WExensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56D8B6160FC96B00016DE0 /* UIApplication+WExensions.m */; };
+		3A56D8BA160FD08500016DE0 /* WSquirrelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56D8B9160FD08500016DE0 /* WSquirrelController.m */; };
+		3A56D8BD160FE56900016DE0 /* WFallingObjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56D8BC160FE56900016DE0 /* WFallingObjectView.m */; };
+		3A56D8BF160FE5ED00016DE0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A56D8BE160FE5ED00016DE0 /* QuartzCore.framework */; };
+		3A56D8C116143C4B00016DE0 /* background-final.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8C016143C4B00016DE0 /* background-final.png */; };
+		3A56D8C316143DD100016DE0 /* happysquirrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8C216143DD100016DE0 /* happysquirrel.png */; };
+		3A56D8C516143F2300016DE0 /* walnut.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8C416143F2300016DE0 /* walnut.png */; };
+		3A56D8C71614403D00016DE0 /* basket.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8C61614403D00016DE0 /* basket.png */; };
+		3A56D8C9161441B600016DE0 /* madsquirrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8C8161441B600016DE0 /* madsquirrel.png */; };
+		3A56D8CB1615528B00016DE0 /* walnuts.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8CA1615528B00016DE0 /* walnuts.mp3 */; };
+		3A56D8CD1615535800016DE0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A56D8CC1615535800016DE0 /* AVFoundation.framework */; };
+		3A56D8D31615616E00016DE0 /* happysquirrel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8CE1615616E00016DE0 /* happysquirrel.mp3 */; };
+		3A56D8D41615616E00016DE0 /* madsquirrel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8CF1615616E00016DE0 /* madsquirrel.mp3 */; };
+		3A56D8D51615616E00016DE0 /* nutcatch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8D01615616E00016DE0 /* nutcatch.mp3 */; };
+		3A56D8D61615616E00016DE0 /* nutmiss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8D11615616E00016DE0 /* nutmiss.mp3 */; };
+		3A56D8D71615616E00016DE0 /* rocksound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8D21615616E00016DE0 /* rocksound.mp3 */; };
+		3A56D8D91615662900016DE0 /* nutcatch2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8D81615662900016DE0 /* nutcatch2.mp3 */; };
+		3A56D8DD16156EA000016DE0 /* madsquirrel2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8DA16156EA000016DE0 /* madsquirrel2.png */; };
+		3A56D8DE16156EA000016DE0 /* pleasedsquirrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8DB16156EA000016DE0 /* pleasedsquirrel.png */; };
+		3A56D8DF16156EA000016DE0 /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8DC16156EA000016DE0 /* rock.png */; };
+		3A56D8E116157C3A00016DE0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A56D8E016157C3A00016DE0 /* AudioToolbox.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3A56D889160FC09300016DE0 /* Walnuts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walnuts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A56D88D160FC09300016DE0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3A56D88F160FC09300016DE0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3A56D891160FC09300016DE0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3A56D895160FC09300016DE0 /* Walnuts-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Walnuts-Info.plist"; sourceTree = "<group>"; };
+		3A56D897160FC09300016DE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3A56D899160FC09300016DE0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3A56D89B160FC09300016DE0 /* Walnuts-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Walnuts-Prefix.pch"; sourceTree = "<group>"; };
+		3A56D89C160FC09300016DE0 /* WAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WAppDelegate.h; sourceTree = "<group>"; };
+		3A56D89D160FC09300016DE0 /* WAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WAppDelegate.m; sourceTree = "<group>"; };
+		3A56D89F160FC09300016DE0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		3A56D8A1160FC09300016DE0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		3A56D8A3160FC09300016DE0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		3A56D8A5160FC09300016DE0 /* WViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WViewController.h; sourceTree = "<group>"; };
+		3A56D8A6160FC09300016DE0 /* WViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WViewController.m; sourceTree = "<group>"; };
+		3A56D8A9160FC09300016DE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WViewController_iPhone.xib; sourceTree = "<group>"; };
+		3A56D8AC160FC09300016DE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WViewController_iPad.xib; sourceTree = "<group>"; };
+		3A56D8B3160FC28900016DE0 /* grassfield.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grassfield.jpg; sourceTree = "<group>"; };
+		3A56D8B5160FC96B00016DE0 /* UIApplication+WExensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+WExensions.h"; sourceTree = "<group>"; };
+		3A56D8B6160FC96B00016DE0 /* UIApplication+WExensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+WExensions.m"; sourceTree = "<group>"; };
+		3A56D8B8160FD08500016DE0 /* WSquirrelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSquirrelController.h; sourceTree = "<group>"; };
+		3A56D8B9160FD08500016DE0 /* WSquirrelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSquirrelController.m; sourceTree = "<group>"; };
+		3A56D8BB160FE56900016DE0 /* WFallingObjectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFallingObjectView.h; sourceTree = "<group>"; };
+		3A56D8BC160FE56900016DE0 /* WFallingObjectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFallingObjectView.m; sourceTree = "<group>"; };
+		3A56D8BE160FE5ED00016DE0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3A56D8C016143C4B00016DE0 /* background-final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-final.png"; sourceTree = "<group>"; };
+		3A56D8C216143DD100016DE0 /* happysquirrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = happysquirrel.png; sourceTree = "<group>"; };
+		3A56D8C416143F2300016DE0 /* walnut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walnut.png; sourceTree = "<group>"; };
+		3A56D8C61614403D00016DE0 /* basket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basket.png; sourceTree = "<group>"; };
+		3A56D8C8161441B600016DE0 /* madsquirrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = madsquirrel.png; sourceTree = "<group>"; };
+		3A56D8CA1615528B00016DE0 /* walnuts.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = walnuts.mp3; sourceTree = "<group>"; };
+		3A56D8CC1615535800016DE0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.Internal.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		3A56D8CE1615616E00016DE0 /* happysquirrel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = happysquirrel.mp3; sourceTree = "<group>"; };
+		3A56D8CF1615616E00016DE0 /* madsquirrel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = madsquirrel.mp3; sourceTree = "<group>"; };
+		3A56D8D01615616E00016DE0 /* nutcatch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nutcatch.mp3; sourceTree = "<group>"; };
+		3A56D8D11615616E00016DE0 /* nutmiss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nutmiss.mp3; sourceTree = "<group>"; };
+		3A56D8D21615616E00016DE0 /* rocksound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rocksound.mp3; sourceTree = "<group>"; };
+		3A56D8D81615662900016DE0 /* nutcatch2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nutcatch2.mp3; sourceTree = "<group>"; };
+		3A56D8DA16156EA000016DE0 /* madsquirrel2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = madsquirrel2.png; sourceTree = "<group>"; };
+		3A56D8DB16156EA000016DE0 /* pleasedsquirrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pleasedsquirrel.png; sourceTree = "<group>"; };
+		3A56D8DC16156EA000016DE0 /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock.png; sourceTree = "<group>"; };
+		3A56D8E016157C3A00016DE0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.Internal.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A56D886160FC09300016DE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A56D8E116157C3A00016DE0 /* AudioToolbox.framework in Frameworks */,
+				3A56D8CD1615535800016DE0 /* AVFoundation.framework in Frameworks */,
+				3A56D8BF160FE5ED00016DE0 /* QuartzCore.framework in Frameworks */,
+				3A56D88E160FC09300016DE0 /* UIKit.framework in Frameworks */,
+				3A56D890160FC09300016DE0 /* Foundation.framework in Frameworks */,
+				3A56D892160FC09300016DE0 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A56D87E160FC09200016DE0 = {
+			isa = PBXGroup;
+			children = (
+				3A56D893160FC09300016DE0 /* Walnuts */,
+				3A56D88C160FC09300016DE0 /* Frameworks */,
+				3A56D88A160FC09300016DE0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3A56D88A160FC09300016DE0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A56D889160FC09300016DE0 /* Walnuts.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A56D88C160FC09300016DE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A56D8E016157C3A00016DE0 /* AudioToolbox.framework */,
+				3A56D8CC1615535800016DE0 /* AVFoundation.framework */,
+				3A56D8BE160FE5ED00016DE0 /* QuartzCore.framework */,
+				3A56D88D160FC09300016DE0 /* UIKit.framework */,
+				3A56D88F160FC09300016DE0 /* Foundation.framework */,
+				3A56D891160FC09300016DE0 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A56D893160FC09300016DE0 /* Walnuts */ = {
+			isa = PBXGroup;
+			children = (
+				3A56D89C160FC09300016DE0 /* WAppDelegate.h */,
+				3A56D89D160FC09300016DE0 /* WAppDelegate.m */,
+				3A56D8A5160FC09300016DE0 /* WViewController.h */,
+				3A56D8A6160FC09300016DE0 /* WViewController.m */,
+				3A56D8A8160FC09300016DE0 /* WViewController_iPhone.xib */,
+				3A56D8AB160FC09300016DE0 /* WViewController_iPad.xib */,
+				3A56D8B5160FC96B00016DE0 /* UIApplication+WExensions.h */,
+				3A56D8B6160FC96B00016DE0 /* UIApplication+WExensions.m */,
+				3A56D8B8160FD08500016DE0 /* WSquirrelController.h */,
+				3A56D8B9160FD08500016DE0 /* WSquirrelController.m */,
+				3A56D8BB160FE56900016DE0 /* WFallingObjectView.h */,
+				3A56D8BC160FE56900016DE0 /* WFallingObjectView.m */,
+				3A56D894160FC09300016DE0 /* Supporting Files */,
+			);
+			path = Walnuts;
+			sourceTree = "<group>";
+		};
+		3A56D894160FC09300016DE0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A56D8CE1615616E00016DE0 /* happysquirrel.mp3 */,
+				3A56D8CF1615616E00016DE0 /* madsquirrel.mp3 */,
+				3A56D8D81615662900016DE0 /* nutcatch2.mp3 */,
+				3A56D8D01615616E00016DE0 /* nutcatch.mp3 */,
+				3A56D8D11615616E00016DE0 /* nutmiss.mp3 */,
+				3A56D8D21615616E00016DE0 /* rocksound.mp3 */,
+				3A56D8CA1615528B00016DE0 /* walnuts.mp3 */,
+				3A56D8DA16156EA000016DE0 /* madsquirrel2.png */,
+				3A56D8DB16156EA000016DE0 /* pleasedsquirrel.png */,
+				3A56D8DC16156EA000016DE0 /* rock.png */,
+				3A56D8C8161441B600016DE0 /* madsquirrel.png */,
+				3A56D8C61614403D00016DE0 /* basket.png */,
+				3A56D8C216143DD100016DE0 /* happysquirrel.png */,
+				3A56D8C016143C4B00016DE0 /* background-final.png */,
+				3A56D8B3160FC28900016DE0 /* grassfield.jpg */,
+				3A56D8C416143F2300016DE0 /* walnut.png */,
+				3A56D895160FC09300016DE0 /* Walnuts-Info.plist */,
+				3A56D896160FC09300016DE0 /* InfoPlist.strings */,
+				3A56D899160FC09300016DE0 /* main.m */,
+				3A56D89B160FC09300016DE0 /* Walnuts-Prefix.pch */,
+				3A56D89F160FC09300016DE0 /* Default.png */,
+				3A56D8A1160FC09300016DE0 /* Default@2x.png */,
+				3A56D8A3160FC09300016DE0 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A56D888160FC09300016DE0 /* Walnuts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A56D8B0160FC09300016DE0 /* Build configuration list for PBXNativeTarget "Walnuts" */;
+			buildPhases = (
+				3A56D885160FC09300016DE0 /* Sources */,
+				3A56D886160FC09300016DE0 /* Frameworks */,
+				3A56D887160FC09300016DE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Walnuts;
+			productName = Walnuts;
+			productReference = 3A56D889160FC09300016DE0 /* Walnuts.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A56D880160FC09200016DE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = W;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = ChatGames;
+			};
+			buildConfigurationList = 3A56D883160FC09200016DE0 /* Build configuration list for PBXProject "Walnuts" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3A56D87E160FC09200016DE0;
+			productRefGroup = 3A56D88A160FC09300016DE0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A56D888160FC09300016DE0 /* Walnuts */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A56D887160FC09300016DE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A56D898160FC09300016DE0 /* InfoPlist.strings in Resources */,
+				3A56D8A0160FC09300016DE0 /* Default.png in Resources */,
+				3A56D8A2160FC09300016DE0 /* Default@2x.png in Resources */,
+				3A56D8A4160FC09300016DE0 /* Default-568h@2x.png in Resources */,
+				3A56D8AA160FC09300016DE0 /* WViewController_iPhone.xib in Resources */,
+				3A56D8AD160FC09300016DE0 /* WViewController_iPad.xib in Resources */,
+				3A56D8B4160FC28900016DE0 /* grassfield.jpg in Resources */,
+				3A56D8C116143C4B00016DE0 /* background-final.png in Resources */,
+				3A56D8C316143DD100016DE0 /* happysquirrel.png in Resources */,
+				3A56D8C516143F2300016DE0 /* walnut.png in Resources */,
+				3A56D8C71614403D00016DE0 /* basket.png in Resources */,
+				3A56D8C9161441B600016DE0 /* madsquirrel.png in Resources */,
+				3A56D8CB1615528B00016DE0 /* walnuts.mp3 in Resources */,
+				3A56D8D31615616E00016DE0 /* happysquirrel.mp3 in Resources */,
+				3A56D8D41615616E00016DE0 /* madsquirrel.mp3 in Resources */,
+				3A56D8D51615616E00016DE0 /* nutcatch.mp3 in Resources */,
+				3A56D8D61615616E00016DE0 /* nutmiss.mp3 in Resources */,
+				3A56D8D71615616E00016DE0 /* rocksound.mp3 in Resources */,
+				3A56D8D91615662900016DE0 /* nutcatch2.mp3 in Resources */,
+				3A56D8DD16156EA000016DE0 /* madsquirrel2.png in Resources */,
+				3A56D8DE16156EA000016DE0 /* pleasedsquirrel.png in Resources */,
+				3A56D8DF16156EA000016DE0 /* rock.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A56D885160FC09300016DE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A56D89A160FC09300016DE0 /* main.m in Sources */,
+				3A56D89E160FC09300016DE0 /* WAppDelegate.m in Sources */,
+				3A56D8A7160FC09300016DE0 /* WViewController.m in Sources */,
+				3A56D8B7160FC96B00016DE0 /* UIApplication+WExensions.m in Sources */,
+				3A56D8BA160FD08500016DE0 /* WSquirrelController.m in Sources */,
+				3A56D8BD160FE56900016DE0 /* WFallingObjectView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3A56D896160FC09300016DE0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A56D897160FC09300016DE0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3A56D8A8160FC09300016DE0 /* WViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A56D8A9160FC09300016DE0 /* en */,
+			);
+			name = WViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		3A56D8AB160FC09300016DE0 /* WViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A56D8AC160FC09300016DE0 /* en */,
+			);
+			name = WViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3A56D8AE160FC09300016DE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3A56D8AF160FC09300016DE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A56D8B1160FC09300016DE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Walnuts/Walnuts-Prefix.pch";
+				INFOPLIST_FILE = "Walnuts/Walnuts-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos.internal;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3A56D8B2160FC09300016DE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Walnuts/Walnuts-Prefix.pch";
+				INFOPLIST_FILE = "Walnuts/Walnuts-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos.internal;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A56D883160FC09200016DE0 /* Build configuration list for PBXProject "Walnuts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A56D8AE160FC09300016DE0 /* Debug */,
+				3A56D8AF160FC09300016DE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A56D8B0160FC09300016DE0 /* Build configuration list for PBXNativeTarget "Walnuts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A56D8B1160FC09300016DE0 /* Debug */,
+				3A56D8B2160FC09300016DE0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A56D880160FC09200016DE0 /* Project object */;
+}
