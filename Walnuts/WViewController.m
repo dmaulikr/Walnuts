@@ -29,6 +29,15 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
     [UIImage imageWithCGImage:[image CGImage]
                         scale:2.0 orientation:UIImageOrientationUp];
     
+    if ([UIApplication currentSize].width < scaledImage.size.width) {
+        CGFloat extraWidth = scaledImage.size.width - [UIApplication currentSize].width;
+        
+        CGRect cropRect = CGRectMake(floorf(extraWidth/2.0)*scaledImage.scale, 0, [UIApplication currentSize].width*scaledImage.scale, scaledImage.size.height*scaledImage.scale);
+        CGImageRef imageRef = CGImageCreateWithImageInRect([scaledImage CGImage], cropRect);
+        scaledImage = [UIImage imageWithCGImage:imageRef scale:scaledImage.scale orientation:UIImageOrientationUp];
+        CFRelease(imageRef);
+    }
+    
     UIImageView *imageView = [[UIImageView alloc] initWithImage:scaledImage];
     [[self view] addSubview:imageView];
     [[self view] sendSubviewToBack:imageView];
@@ -37,6 +46,8 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
     _squirrelController = [[WSquirrelController alloc] initWithDelegate:self];
 
     _squirrel = [[UIImageView alloc] initWithImage:[self _getHappySquirrel]];
+    CGSize squirrelSize = [_squirrel frame].size;
+    [_squirrel setFrame:CGRectMake(floor(([UIApplication currentSize].width-squirrelSize.width)/2.0), 0, squirrelSize.width, squirrelSize.height)];
     [[self view] addSubview:_squirrel];
     
     CGFloat basketHeight = 60.0;
@@ -45,7 +56,7 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
     UIImage *basketImage = [UIImage imageNamed:@"basket.png"];
     _basket = [[UIImageView alloc] initWithImage:basketImage];
     [_basket setContentMode:UIViewContentModeScaleToFill];
-    [_basket setFrame:CGRectMake(0, screenHeight - basketHeight, basketWidth, basketHeight)];
+    [_basket setFrame:CGRectMake(floor(([UIApplication currentSize].width-basketWidth)/2.0), screenHeight - basketHeight, basketWidth, basketHeight)];
     [_basket setBackgroundColor:[UIColor yellowColor]];
     [[self view] addSubview:_basket];
     
@@ -62,10 +73,57 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
     _musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&error];
     [_musicPlayer setNumberOfLoops:-1];
     [_musicPlayer play];
+    
+    _state = WGameStateOver;
+    [self _showNewGameView];
+}
+
+- (void)_showBetweenGameViewWithText:(NSString *)text buttonTitle:(NSString *)buttonTitle {
+    [self _tearDownBetweenGameView];
+    
+    CGFloat border = 20;
+    _betweenGameView = [[UIView alloc] initWithFrame:CGRectMake(border, border, [UIApplication currentSize].width-(2*border), [UIApplication currentSize].height-(2*border))];
+    
+    [_betweenGameView setBackgroundColor:[UIColor blackColor]];
+    [_betweenGameView setAlpha:0.8];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [UIApplication currentSize].width-(2*border), 100)];
+    [label setText:text];
+    [label setNumberOfLines:4];
+    [label setTextColor:[UIColor whiteColor]];
+    [label setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.0]];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    [label setFont:[UIFont boldSystemFontOfSize:20.0]];
+    
+    [_betweenGameView addSubview:label];
+    [label release];
+    
+    CGFloat buttonWidth = 100;
+    CGFloat buttonHeight = 50;
+    UIButton *playButton = [[UIButton alloc] initWithFrame:CGRectMake(floorf((_betweenGameView.frame.size.width-buttonWidth)/2.0), _betweenGameView.frame.size.height-20-buttonHeight, buttonWidth, buttonHeight)];
+    [playButton setTitle:buttonTitle forState:UIControlStateNormal];
+    [playButton setBackgroundColor:[UIColor grayColor]];
+    [playButton addTarget:self action:@selector(_restartGame) forControlEvents:UIControlEventTouchUpInside];
+    [_betweenGameView addSubview:playButton];
+    [playButton release];
+    
+    [[self view] addSubview: _betweenGameView];
+}
+
+- (void)_showNewGameView {
+    [self _showBetweenGameViewWithText:@"Welcome to Walnuts\n\nCatch the nuts, avoid the rocks, and beat the squirrel!" buttonTitle:@"Play"];
+}
+
+- (void)_showGameOverView {
+    [self _showBetweenGameViewWithText:[NSString stringWithFormat:@"Game over!\n\nYou saved %u walnut%@.", _score, _score == 1 ? @"" : @"s"] buttonTitle:@"Rematch"];
+}
+
+- (void)_tearDownBetweenGameView {
+    [_betweenGameView removeFromSuperview];
+    [_betweenGameView release];
+    _betweenGameView = nil;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self _restartGame];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,6 +141,7 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
     [_effectsPlayer setDelegate:nil];
     [_effectsPlayer release];
     [_pendingEffects release];
+    [_betweenGameView release];
     
     [super dealloc];
 }
@@ -176,11 +235,15 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
 #pragma mark - Levels
 
 - (void)_restartGame {
+    [self _tearDownBetweenGameView];
+    
     NSLog(@"Restarting game");
     _score = 0;
     [_squirrelController resetProbabilities];
     [self _updateScoreLabel];
-    [self _startLevel];
+    
+    _state = WGameStateRunning;
+    [self performSelector:@selector(_startLevel) withObject:nil afterDelay:2];
 }
 
 - (void)_startLevel {
@@ -211,7 +274,7 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
         NSLog(@"Game over");
         [_squirrel setImage:sScaledPleasedSquirrel];
         [self _playHappySquirrel];
-        [self performSelector:@selector(_restartGame) withObject:nil afterDelay:2.0];
+        [self performSelector:@selector(_showGameOverView) withObject:nil afterDelay:0.5];
     }
 }
 

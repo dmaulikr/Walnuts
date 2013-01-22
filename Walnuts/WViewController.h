@@ -11,6 +11,7 @@
 #import "WSquirrelController.h"
 
 typedef enum {
+    WGameStateOver,
     WGameStateRunning,
     WGameStateLostLife,
     WGameStateBetweenLevels
@@ -25,6 +26,8 @@ typedef enum {
     UIImageView *_squirrel;
     UIView *_basket;
     WSquirrelController *_squirrelController;
+    
+    UIView *_betweenGameView;
     
     NSMutableArray *_fallingObjects;
     CADisplayLink *_displayLink;

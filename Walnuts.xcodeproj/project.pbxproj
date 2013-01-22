@@ -41,6 +41,8 @@
 		3A56D8DE16156EA000016DE0 /* pleasedsquirrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8DB16156EA000016DE0 /* pleasedsquirrel.png */; };
 		3A56D8DF16156EA000016DE0 /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A56D8DC16156EA000016DE0 /* rock.png */; };
 		3A56D8E116157C3A00016DE0 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A56D8E016157C3A00016DE0 /* AudioToolbox.framework */; };
+		651531CD16AE6CEB00CB6390 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 651531CC16AE6CEB00CB6390 /* icon.png */; };
+		651531CF16AE6D2500CB6390 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 651531CE16AE6D2500CB6390 /* icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,8 @@
 		3A56D8DB16156EA000016DE0 /* pleasedsquirrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pleasedsquirrel.png; sourceTree = "<group>"; };
 		3A56D8DC16156EA000016DE0 /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock.png; sourceTree = "<group>"; };
 		3A56D8E016157C3A00016DE0 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.Internal.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		651531CC16AE6CEB00CB6390 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		651531CE16AE6D2500CB6390 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,8 @@
 		3A56D87E160FC09200016DE0 = {
 			isa = PBXGroup;
 			children = (
+				651531CE16AE6D2500CB6390 /* icon@2x.png */,
+				651531CC16AE6CEB00CB6390 /* icon.png */,
 				3A56D893160FC09300016DE0 /* Walnuts */,
 				3A56D88C160FC09300016DE0 /* Frameworks */,
 				3A56D88A160FC09300016DE0 /* Products */,
@@ -259,6 +265,8 @@
 				3A56D8DD16156EA000016DE0 /* madsquirrel2.png in Resources */,
 				3A56D8DE16156EA000016DE0 /* pleasedsquirrel.png in Resources */,
 				3A56D8DF16156EA000016DE0 /* rock.png in Resources */,
+				651531CD16AE6CEB00CB6390 /* icon.png in Resources */,
+				651531CF16AE6D2500CB6390 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +374,7 @@
 				INFOPLIST_FILE = "Walnuts/Walnuts-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos.internal;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -379,6 +388,7 @@
 				INFOPLIST_FILE = "Walnuts/Walnuts-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos.internal;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -402,6 +412,7 @@
 				3A56D8B2160FC09300016DE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
