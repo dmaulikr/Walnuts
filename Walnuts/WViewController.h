@@ -22,7 +22,9 @@ typedef enum {
     WGameState _state;
     UILabel *_scoreLabel;
     NSUInteger _score;
+    NSUInteger _highScore;
     
+    CGFloat _scale;
     UIImageView *_squirrel;
     UIView *_basket;
     WSquirrelController *_squirrelController;

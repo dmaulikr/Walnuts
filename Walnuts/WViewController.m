@@ -16,6 +16,8 @@
 
 static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of the screen the squirrel will traverse per second
 
+#define kHighScoreKey @"highScore-v0"
+
 @implementation WViewController
 
 - (void)viewDidLoad {
@@ -24,10 +26,16 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSNumber *highScore = [[NSUserDefaults standardUserDefaults] objectForKey:kHighScoreKey];
+    _highScore = [highScore unsignedIntegerValue];
+    
     UIImage *image = [UIImage imageNamed:@"background-final.png"];
+    
+    _scale = [image size].height/[UIApplication currentSize].height;
+    
     UIImage *scaledImage =
     [UIImage imageWithCGImage:[image CGImage]
-                        scale:2.0 orientation:UIImageOrientationUp];
+                        scale:_scale orientation:UIImageOrientationUp];
     
     if ([UIApplication currentSize].width < scaledImage.size.width) {
         CGFloat extraWidth = scaledImage.size.width - [UIApplication currentSize].width;
@@ -50,18 +58,18 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
     [_squirrel setFrame:CGRectMake(floor(([UIApplication currentSize].width-squirrelSize.width)/2.0), 0, squirrelSize.width, squirrelSize.height)];
     [[self view] addSubview:_squirrel];
     
-    CGFloat basketHeight = 60.0;
-    CGFloat basketWidth = 80.0;
+    CGFloat basketHeight = 60.0*1.0/_scale;
+    CGFloat basketWidth = 80.0*1.0/_scale;
     CGFloat screenHeight = [UIApplication currentSize].height;
-    UIImage *basketImage = [UIImage imageNamed:@"basket.png"];
+    UIImage *basketImage = [UIImage imageWithCGImage:[[UIImage imageNamed:@"basket.png"] CGImage] scale:_scale orientation:UIImageOrientationUp];
     _basket = [[UIImageView alloc] initWithImage:basketImage];
     [_basket setContentMode:UIViewContentModeScaleToFill];
     [_basket setFrame:CGRectMake(floor(([UIApplication currentSize].width-basketWidth)/2.0), screenHeight - basketHeight, basketWidth, basketHeight)];
     [_basket setBackgroundColor:[UIColor yellowColor]];
     [[self view] addSubview:_basket];
     
-    _scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(3, 1, 100, 10)];
-    [_scoreLabel setFont:[UIFont boldSystemFontOfSize:12.0]];
+    _scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(3, 1, 100*1.0/_scale, 10*1.0/_scale)];
+    [_scoreLabel setFont:[UIFont boldSystemFontOfSize:floorf(12.0*1.0/_scale)]];
     [_scoreLabel setTextColor:[UIColor redColor]];
     [_scoreLabel setBackgroundColor:[UIColor clearColor]];
     [[self view] addSubview:_scoreLabel];
@@ -86,9 +94,9 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
     
     [_betweenGameView setBackgroundColor:[UIColor blackColor]];
     [_betweenGameView setAlpha:0.8];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [UIApplication currentSize].width-(2*border), 100)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [UIApplication currentSize].width-(2*border), 200)];
     [label setText:text];
-    [label setNumberOfLines:4];
+    [label setNumberOfLines:6];
     [label setTextColor:[UIColor whiteColor]];
     [label setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.0]];
     [label setTextAlignment:NSTextAlignmentCenter];
@@ -110,11 +118,15 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
 }
 
 - (void)_showNewGameView {
-    [self _showBetweenGameViewWithText:@"Welcome to Walnuts\n\nCatch the nuts, avoid the rocks, and beat the squirrel!" buttonTitle:@"Play"];
+    [self _showBetweenGameViewWithText:[NSString stringWithFormat:@"Welcome to Walnuts\n\nCatch the nuts, avoid the rocks, and beat the squirrel!\n\nHigh score: %u", _highScore] buttonTitle:@"Play"];
 }
 
 - (void)_showGameOverView {
-    [self _showBetweenGameViewWithText:[NSString stringWithFormat:@"Game over!\n\nYou saved %u walnut%@.", _score, _score == 1 ? @"" : @"s"] buttonTitle:@"Rematch"];
+    [self _showBetweenGameViewWithText:[NSString stringWithFormat:@"Game over!\n\nYou saved %u walnut%@.\nHigh score: %u", _score, _score == 1 ? @"" : @"s", _highScore] buttonTitle:@"Rematch"];
+}
+
+- (void)_showHighScoreGameOverView {
+    [self _showBetweenGameViewWithText:[NSString stringWithFormat:@"Game over!\n\n High score!!\nYou saved %u walnut%@.", _score, _score == 1 ? @"" : @"s"] buttonTitle:@"Rematch"];
 }
 
 - (void)_tearDownBetweenGameView {
@@ -220,7 +232,7 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         UIImage *squirrelImage = [UIImage imageNamed:@"happysquirrel.png"];
-        sHappySquirrel = [[UIImage imageWithCGImage:[squirrelImage CGImage] scale:2.0 orientation:UIImageOrientationUp] retain];
+        sHappySquirrel = [[UIImage imageWithCGImage:[squirrelImage CGImage] scale:_scale orientation:UIImageOrientationUp] retain];
     });
     return sHappySquirrel;
 }
@@ -259,9 +271,9 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         UIImage *madSquirrel = [UIImage imageNamed:@"madsquirrel2.png"];
-        sScaledMadSquirrel = [[UIImage imageWithCGImage:[madSquirrel CGImage] scale:2.0 orientation:UIImageOrientationUp] retain];
+        sScaledMadSquirrel = [[UIImage imageWithCGImage:[madSquirrel CGImage] scale:_scale orientation:UIImageOrientationUp] retain];
         UIImage *pleasedSquirrel = [UIImage imageNamed:@"pleasedsquirrel.png"];
-        sScaledPleasedSquirrel = [[UIImage imageWithCGImage:[pleasedSquirrel CGImage] scale:2.0 orientation:UIImageOrientationUp] retain];
+        sScaledPleasedSquirrel = [[UIImage imageWithCGImage:[pleasedSquirrel CGImage] scale:_scale orientation:UIImageOrientationUp] retain];
     });
 
     // The squirrel is waiting and we're between levels
@@ -274,7 +286,14 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
         NSLog(@"Game over");
         [_squirrel setImage:sScaledPleasedSquirrel];
         [self _playHappySquirrel];
-        [self performSelector:@selector(_showGameOverView) withObject:nil afterDelay:0.5];
+        if (_score > _highScore) {
+            [self performSelector:@selector(_showHighScoreGameOverView) withObject:nil afterDelay:0.5];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithUnsignedInteger:_score] forKey:kHighScoreKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            _highScore = _score;
+        } else {
+            [self performSelector:@selector(_showGameOverView) withObject:nil afterDelay:0.5];
+        }
     }
 }
 
@@ -406,7 +425,7 @@ static const CGFloat kWSquirrelMovementScreenProportion = 0.2; // Proportion of 
     }
     
     CGRect squirrelFrame = [_squirrel frame];
-    CGFloat objectDimension = 15.0;
+    CGFloat objectDimension = floorf(15.0*1.0/_scale);
     CGRect objectFrame = CGRectMake(squirrelFrame.origin.x + ceilf(squirrelFrame.size.width/2.0) - ceilf(objectDimension/2.0), squirrelFrame.size.height, objectDimension, objectDimension);
     WFallingObjectView *objectView = [[WFallingObjectView alloc] initWithFrame:objectFrame action:action];
     [[self view] addSubview:objectView];
